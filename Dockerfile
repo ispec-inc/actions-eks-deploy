@@ -2,6 +2,7 @@ FROM python:3.6
 
 ARG pip_installer="https://bootstrap.pypa.io/get-pip.py"
 ARG awscli_version="1.17.9"
+ARG VERSION=3.5.4
 
 # Install awscli
 RUN pip install awscli==${awscli_version}
