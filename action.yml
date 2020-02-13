@@ -1,0 +1,18 @@
+name: 'deploy docker image for eks service'
+description: 'When a pull request is labeled Create a comment'
+inputs:
+  image_uri:
+    description: image uri for docker image
+    required: true
+  image_tag:
+    description: image tag for docker image
+    required: false
+  kube_config_data:
+    description: kubeconfig encoded base64
+    required: true
+  kube_apply_dir:
+    description: directory of apply kube command
+    required: true
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
