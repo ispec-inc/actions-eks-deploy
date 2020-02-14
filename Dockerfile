@@ -1,4 +1,14 @@
-FROM python:3.6
+FROM gcr.io/cloud-builders/kubectl
+ENV PYENV_ROOT $HOME/.pyenv
+ENV PATH $PYENV_ROOT/bin:$PATH
+RUN apt-get update -y && \
+    apt-get install -y gcc zlib-devel bzip2 bzip2-devel readline readline-devel sqlite sqlite-devel openssl openssl-devel git libffi-devel && \
+    curl https://bootstrap.pypa.io/get-pip.py | python && \
+    git clone https://github.com/pyenv/pyenv.git ~/.pyenv && \
+    echo 'eval "$(pyenv init -)"' >> ~/.bashrc
+
+RUN apt-get update
+RUN apt-get -y install docker-ce
 
 ARG pip_installer="https://bootstrap.pypa.io/get-pip.py"
 ARG awscli_version="1.17.9"
