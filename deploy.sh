@@ -1,6 +1,10 @@
 #/bin/bash
 exec /bin/bash -ec "export IMAGE_URI=$1"
-exec /bin/bash -ec "if [ -n "$2" ]; then; export IMAGE_TAG=$2; else; export IMAGE_TAG=$(git log -1 --pretty=%H); fi"
+exec /bin/bash -ec "if [ -n "$2" ]; then
+export IMAGE_TAG=$2
+else
+export IMAGE_TAG=$(git log -1 --pretty=%H)
+fi"
 exec /bin/bash -ec "export KUBE_CONFIG_DATA=$3"
 exec /bin/bash -ec "export KUBE_APPLY_DIR=$4"
 exec /bin/bash -ec "docker build . -t $IMAGE_URI:$IMAGE_TAG"
