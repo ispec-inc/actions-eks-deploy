@@ -10,6 +10,9 @@ fi
 echo IMAGE TAG $IMAGE_TAG
 export KUBE_CONFIG_DATA=$3
 export KUBE_APPLY_DIR=$4
+export AWS_ACCESS_KEY_ID=$5
+export AWS_SECRET_ACCESS_KEY=$6
+export AWS_REGION=$7
 
 docker build . -t $IMAGE_URI:$IMAGE_TAG
 aws ecr get-login --no-include-email | sh
