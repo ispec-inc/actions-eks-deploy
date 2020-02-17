@@ -17,7 +17,7 @@ RUN curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$
 
 # Install kustomize
 ARG VERSION=3.5.4
-RUN curl -Lo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v{$VERSION}/kustomize_${VERSION}_linux_amd64 && chmod +x kustomize && mv kustomize /usr/local/bin
+RUN curl -Lo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v${VERSION}/kustomize_${VERSION}_linux_amd64 && chmod +x kustomize && mv kustomize /usr/local/bin
 
 # Install Docker
 RUN apt-get -y install apt-transport-https ca-certificates curl gnupg2 software-properties-common
