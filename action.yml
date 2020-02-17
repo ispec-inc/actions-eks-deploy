@@ -30,3 +30,6 @@ runs:
     - ${{ inputs.image_tag }}
     - ${{ inputs.kube_config_data }}
     - ${{ inputs.kube_apply_dir }}
+    - ${{ inputs.aws_access_key_id }}
+    - ${{ inputs.aws_secret_access_key }}
+    - ${{ inputs.aws_region }}
