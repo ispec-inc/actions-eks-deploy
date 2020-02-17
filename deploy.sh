@@ -17,7 +17,7 @@ docker push $IMAGE_URI:$IMAGE_TAG
 
 export KUBECONFIG=/kubeconfig
 touch $KUBECONFIG
-echo $KUBE_CONFIG_DATA | base64 -d > KUBECONFIG
+echo $KUBE_CONFIG_DATA | base64 -d > $KUBECONFIG
 cd $KUBE_APPLY_DIR
 kustomize edit set image $IMAGE_URI=$IMAGE_URI:$IMAGE_TAG
 kubectl apply -k .
