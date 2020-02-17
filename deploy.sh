@@ -1,10 +1,12 @@
 #/bin/bash
 exec /bin/bash -ec "export IMAGE_URI=$1"
+echo IMAGE URL ${IMAGE_URI}
 exec /bin/bash -ec "if [ -n "$2" ]; then
 export IMAGE_TAG=$2
 else
 export IMAGE_TAG=$(git log -1 --pretty=%H)
 fi"
+echo IMAGE TAG ${IMAGE_TAG}
 exec /bin/bash -ec "export KUBE_CONFIG_DATA=$3"
 exec /bin/bash -ec "export KUBE_APPLY_DIR=$4"
 
