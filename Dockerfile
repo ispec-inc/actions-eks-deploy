@@ -16,7 +16,7 @@ RUN export PATH=/usr/local/bin
 RUN curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x kubectl && mv kubectl /usr/local/bin
 
 # Install kustomize
-ARG VERSION=3.5.4
+ARG VERSION=2.0.3
 RUN curl -Lo kustomize https://github.com/kubernetes-sigs/kustomize/releases/download/v${VERSION}/kustomize_${VERSION}_linux_amd64 && chmod +x kustomize && mv kustomize /usr/local/bin
 
 # Install Docker
