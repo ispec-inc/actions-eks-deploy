@@ -1,4 +1,4 @@
-#/bin/bash
+#/bin/bash -l
 exec /bin/bash -ec "export IMAGE_URI=$1"
 echo IMAGE URL ${IMAGE_URI}
 exec /bin/bash -ec "if [ -n "$2" ]; then
