@@ -24,7 +24,7 @@ echo $IMAGE_URI:$IMAGE_TAG
 
 echo $KUBE_CONFIG_DATA | base64 -d
 export KUBECONFIG=/kubeconfig
-touch KUBECONFIG
+touch $KUBECONFIG
 echo $KUBE_CONFIG_DATA | base64 -d > KUBECONFIG
 cd $KUBE_APPLY_DIR
 kustomize edit set image $IMAGE_URI=$IMAGE_URI:$IMAGE_TAG
