@@ -10,6 +10,7 @@ exec /bin/bash -ec "export KUBE_APPLY_DIR=$4"
 exec /bin/bash -ec "docker build . -t $IMAGE_URI:$IMAGE_TAG"
 exec /bin/bash -ec "aws ecr get-login --no-include-email | sh"
 exec /bin/bash -ec "docker push $IMAGE_URI:$IMAGE_TAG"
+exec /bin/bash -ec "echo $IMAGE_URI:$IMAGE_TAG"
 
 export KUBECONFIG=/kubeconfig
 touch KUBECONFIG
