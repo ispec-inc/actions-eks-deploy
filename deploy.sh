@@ -9,10 +9,12 @@ export IMAGE_TAG=$(git log -1 --pretty=%H)
 fi
 echo IMAGE TAG $IMAGE_TAG
 export KUBE_CONFIG_DATA=$3
-export KUBE_APPLY_DIR=$4
 echo $KUBE_CONFIG_DATA
+export KUBE_APPLY_DIR=$4
 export AWS_ACCESS_KEY_ID=$5
+echo $AWS_ACCESS_KEY_ID
 export AWS_SECRET_ACCESS_KEY=$6
+echo $AWS_SECRET_ACCESS_KEY
 export AWS_REGION=$7
 
 docker build . -t $IMAGE_URI:$IMAGE_TAG
