@@ -22,6 +22,9 @@ inputs:
   aws_region:
     description: region
     required: true
+  build_args:
+    description: build args
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'

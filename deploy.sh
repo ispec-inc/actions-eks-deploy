@@ -11,7 +11,11 @@ export AWS_ACCESS_KEY_ID=$5
 export AWS_SECRET_ACCESS_KEY=$6
 export AWS_DEFAULT_REGION=$7
 
-docker build . -t $IMAGE_URI:$IMAGE_TAG
+if [ -n "$8" ]; then
+export BUILD_ARGS="--build-arg $8"
+fi
+
+docker build . -t $IMAGE_URI:$IMAGE_TAG $BUILD_ARGS
 aws ecr get-login --no-include-email | sh
 docker push $IMAGE_URI:$IMAGE_TAG
 
