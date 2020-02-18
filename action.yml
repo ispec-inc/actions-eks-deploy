@@ -36,3 +36,4 @@ runs:
     - ${{ inputs.aws_access_key_id }}
     - ${{ inputs.aws_secret_access_key }}
     - ${{ inputs.aws_region }}
+    - ${{ inputs.build_args }}
