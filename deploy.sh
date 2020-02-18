@@ -13,9 +13,11 @@ export AWS_DEFAULT_REGION=$7
 
 if [ -n "$8" ]; then
 export BUILD_ARGS="--build-arg $8"
+else
+export BUILD_ARGS=""
 fi
 
-docker build . -t $IMAGE_URI:$IMAGE_TAG $BUILD_ARGS
+docker build -t=$IMAGE_URI:$IMAGE_TAG $BUILD_ARGS .
 aws ecr get-login --no-include-email | sh
 docker push $IMAGE_URI:$IMAGE_TAG
 
